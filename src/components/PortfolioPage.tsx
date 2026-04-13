@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
+  ArrowUp,
   ArrowRight,
   Check,
   ChevronRight,
@@ -256,6 +257,10 @@ export default function PortfolioPage() {
 
   const downloadResume = () => {
     window.open(profileLinks.resume, "_blank", "noopener,noreferrer");
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -793,6 +798,16 @@ export default function PortfolioPage() {
             </div>
           </div>
         </section>
+
+        <button
+          onClick={scrollToTop}
+          aria-label="Back to top"
+          className={`fixed bottom-8 left-6 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition hover:-translate-y-0.5 hover:border-[var(--accent)] hover:text-[var(--accent)] ${
+            navScrolled ? "opacity-100" : "pointer-events-none opacity-0"
+          }`}
+        >
+          <ArrowUp size={18} />
+        </button>
 
         <footer className="flex flex-wrap items-center justify-between gap-4 border-t border-[var(--border)] bg-[var(--surface)] px-6 py-8 md:px-10 lg:px-16">
           <div className="font-[var(--font-display)] text-lg font-extrabold">
